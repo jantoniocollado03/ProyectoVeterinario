@@ -3,8 +3,6 @@
 class Clinica <<entity>>{
     
 }
-Clinica o-- Veterinario : cuenta con >
-Clinica o-- Consulta : aloja >
 
 class Veterinario <<entity>>{
     + Id : int
@@ -15,9 +13,6 @@ class Consulta <<entity>>{
     + Fecha : date
     + DiagnoticoFinal : string
 }
-Consulta -- Mascota : atiende a >
-Consulta -- Veterinario : realizada por >
-Consulta *-- LineaTratamiento : contiene >
 
 class LineaTratamiento <<entity>>{
     + Concepto : string
@@ -28,12 +23,7 @@ class Cliente <<entity>>{
     + DNI : string
     + NombreCompleto : string
     + Telefono : string
-    + RegistrarMascota() : void
-    + SolicitarConsulta() : void
-    + PagarFactura() : void
 }
-Cliente o-- Mascota : es dueño de >
-
 
 class Mascota <<entity>>{
     + NumChip : string
@@ -41,9 +31,6 @@ class Mascota <<entity>>{
     + Especie : string
     + Peso : double
 }
-Mascota <|-- Perro
-Mascota <|-- Gato
-
 
 class Perro <<entity>>{
     + NivelAgrsividad : int
@@ -52,5 +39,36 @@ class Perro <<entity>>{
 class Gato <<entity>>{
     + TestLeucemia : bool
 }
+
+class ControlRegistrarMascota <<control>>{
+    + RegistrarMascota() : void
+}
+
+class ControlSolicitudConsulta <<control>>{
+    + SolicitarConsulta() : void
+}
+
+class ControlPagoFactura <<control>>{
+    + PagarFactura() : void
+}
+
+
+ControlRegistrarMascota ..> Cliente
+ControlRegistrarMascota ..> Mascota
+
+ControlSolicitudConsulta ..> Consulta
+ControlSolicitudConsulta ..> Cliente
+
+ControlPagoFactura ..> Cliente
+ControlPagoFactura ..> Consulta
+
+Clinica o-- Veterinario : cuenta con >
+Clinica o-- Consulta : aloja >
+Cliente o-- Mascota : es dueño de >
+Consulta -- Mascota : atiende a >
+Consulta -- Veterinario : realizada por >
+Consulta *-- LineaTratamiento : contiene >
+Mascota <|-- Perro : es un <
+Mascota <|-- Gato : es un <
 
 @enduml
