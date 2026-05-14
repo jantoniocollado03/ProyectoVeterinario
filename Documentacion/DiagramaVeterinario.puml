@@ -40,27 +40,27 @@ class Gato <<entity>>{
     + TestLeucemia : bool
 }
 
-class ControlRegistrarMascota <<control>>{
+class RegistrarMascota <<control>>{
     + RegistrarMascota() : void
 }
 
-class ControlSolicitudConsulta <<control>>{
+class SolicitudConsulta <<control>>{
     + SolicitarConsulta() : void
 }
 
-class ControlPagoFactura <<control>>{
+class PagoFactura <<control>>{
     + PagarFactura() : void
 }
 
 
-ControlRegistrarMascota ..> Cliente
-ControlRegistrarMascota ..> Mascota
+RegistrarMascota ..> Cliente
+RegistrarMascota ..> Mascota
 
-ControlSolicitudConsulta ..> Consulta
-ControlSolicitudConsulta ..> Cliente
+SolicitudConsulta ..> Consulta
+SolicitudConsulta ..> Cliente
 
-ControlPagoFactura ..> Cliente
-ControlPagoFactura ..> Consulta
+PagoFactura ..> Cliente
+PagoFactura ..> Consulta
 
 Clinica o-- Veterinario : cuenta con >
 Clinica o-- Consulta : aloja >
