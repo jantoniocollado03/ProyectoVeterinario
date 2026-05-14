@@ -1,9 +1,5 @@
 ﻿@startuml
 
-class Clinica <<entity>>{
-    
-}
-
 class Veterinario <<entity>>{
     + Id : int
     + Nombre : string
@@ -12,6 +8,7 @@ class Veterinario <<entity>>{
 class Consulta <<entity>>{
     + Fecha : date
     + DiagnoticoFinal : string
+    + RegistrarMascota() : void
 }
 
 class LineaTratamiento <<entity>>{
@@ -23,6 +20,8 @@ class Cliente <<entity>>{
     + DNI : string
     + NombreCompleto : string
     + Telefono : string
+    + PagoFactura() : void
+    + SolicitudConsulta() : void
 }
 
 class Mascota <<entity>>{
@@ -40,34 +39,11 @@ class Gato <<entity>>{
     + TestLeucemia : bool
 }
 
-class RegistrarMascota <<control>>{
-    + RegistrarMascota() : void
-}
 
-class SolicitudConsulta <<control>>{
-    + SolicitarConsulta() : void
-}
-
-class PagoFactura <<control>>{
-    + PagarFactura() : void
-}
-
-
-RegistrarMascota ..> Cliente
-RegistrarMascota ..> Mascota
-
-SolicitudConsulta ..> Consulta
-SolicitudConsulta ..> Cliente
-
-PagoFactura ..> Cliente
-PagoFactura ..> Consulta
-
-Clinica o-- Veterinario : cuenta con >
-Clinica o-- Consulta : aloja >
-Cliente o-- Mascota : es dueño de >
-Consulta -- Mascota : atiende a >
-Consulta -- Veterinario : realizada por >
-Consulta *-- LineaTratamiento : contiene >
+Cliente "1"o--"1" Mascota : es dueño de >
+Consulta "1"--"1" Mascota : atiende a >
+Consulta "1"--"1" Veterinario : realizada por >
+Consulta "1"*--"*" LineaTratamiento : contiene >
 Mascota <|-- Perro : es un <
 Mascota <|-- Gato : es un <
 
