@@ -1,0 +1,56 @@
+﻿@startuml
+
+class Clinica <<entity>>{
+    
+}
+Clinica o-- Veterinario : cuenta con >
+Clinica o-- Consulta : aloja >
+
+class Veterinario <<entity>>{
+    + Id : int
+    + Nombre : string
+}
+
+class Consulta <<entity>>{
+    + Fecha : date
+    + DiagnoticoFinal : string
+}
+Consulta -- Mascota : atiende a >
+Consulta -- Veterinario : realizada por >
+Consulta *-- LineaTratamiento : contiene >
+
+class LineaTratamiento <<entity>>{
+    + Concepto : string
+    + Precio : decimal
+}
+
+class Cliente <<entity>>{
+    + DNI : string
+    + NombreCompleto : string
+    + Telefono : string
+    + RegistrarMascota() : void
+    + SolicitarConsulta() : void
+    + PagarFactura() : void
+}
+Cliente o-- Mascota : es dueño de >
+
+
+class Mascota <<entity>>{
+    + NumChip : string
+    + Nombre : string
+    + Especie : string
+    + Peso : double
+}
+Mascota <|-- Perro
+Mascota <|-- Gato
+
+
+class Perro <<entity>>{
+    + NivelAgrsividad : int
+}
+
+class Gato <<entity>>{
+    + TestLeucemia : bool
+}
+
+@enduml
