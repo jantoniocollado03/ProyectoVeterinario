@@ -2,8 +2,8 @@
 
 public class LineaTratamiento
 {
-    public string Concepto { get; set; }
-    public decimal Precio { get; set; }
+    public string Concepto { get; private set; }
+    public decimal Precio { get; private set; }
 
     public LineaTratamiento(string concepto, decimal precio)
     {

@@ -2,6 +2,6 @@
 
 public class Veterinario
 {
-    private int Id;
-    private string Nombre;
+    public int Id { get; private set; }
+    public string Nombre { get; private set; }
 }

@@ -2,9 +2,9 @@
 
 public class Cliente
 {
-    private string DNI { get; set; }
-    private string NombreCompleto { get; set; }
-    private string Telefono { get; set; }
+    public string DNI { get; private set; }
+    public string NombreCompleto { get; private set; }
+    public string Telefono { get; private set; }
     public Mascota Mascota { get; set; }
     
 
