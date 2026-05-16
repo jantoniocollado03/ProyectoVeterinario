@@ -1,34 +1,34 @@
 ﻿@startuml
 
 class Veterinario <<entity>>{
-    + Id : int
-    + Nombre : string
+    - Id : int
+    - Nombre : string
 }
 
 class Consulta <<entity>>{
-    + Fecha : DateTime
-    + DiagnoticoFinal : string
+    - Fecha : DateTime
+    - DiagnoticoFinal : string
     + RegistrarMascota() : void
 }
 
 class LineaTratamiento <<entity>>{
-    + Concepto : string
-    + Precio : decimal
+    - Concepto : string
+    - Precio : decimal
 }
 
 class Cliente <<entity>>{
-    + DNI : string
-    + NombreCompleto : string
-    + Telefono : string
+    - DNI : string
+    - NombreCompleto : string
+    - Telefono : string
     + PagoFactura() : void
     + SolicitudConsulta() : void
 }
 
 class Mascota <<entity>>{
-    + NumChip : string
-    + Nombre : string
-    + Especie : string
-    + Peso : double
+    - NumChip : string
+    - Nombre : string
+    - Especie : string
+    - Peso : double
 }
 
 class Perro <<entity>>{

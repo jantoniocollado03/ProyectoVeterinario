@@ -2,10 +2,10 @@
 
 public class Mascota
 {
-    public string NumChip { get; set; }
-    public string Nombre { get; set; }
-    public string Especie { get; set; }
-    public double Peso { get; set; }
+    private string NumChip;
+    private string Nombre;
+    private string Especie;
+    private double Peso;
 
     public Mascota(string numChip, string nombre, string especie, double peso)
     {

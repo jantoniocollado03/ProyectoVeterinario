@@ -2,10 +2,10 @@
 
 public class Consulta
 {
-    public DateTime Fecha { get; set; }
-    public string DiagnosticoFinal { get; set; }
+    private DateTime Fecha;
+    private string DiagnosticoFinal;
     public Veterinario Veterinario { get; set; }
-    public Mascota Mascota { get; set; }
+    public  Mascota Mascota { get; set; }
     public List<LineaTratamiento> LineasTratamientos { get; set; }
 
     public Consulta(DateTime fecha, string diagnosticoFinal)
