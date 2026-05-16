@@ -2,5 +2,26 @@
 
 public class Cliente
 {
+    public string DNI { get; set; }
+    public string NombreCompleto { get; set; }
+    public string Telefono { get; set; }
+    public Mascota Mascota { get; set; }
     
+
+    public Cliente(string dni, string nombreCompleto, string telefono)
+    {
+        DNI = dni;
+        NombreCompleto = nombreCompleto;
+        Telefono = telefono;
+    }
+
+    public void PagoFactura()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SolicitudConsulta()
+    {
+        throw new NotImplementedException();
+    }
 }

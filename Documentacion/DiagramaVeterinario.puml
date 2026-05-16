@@ -6,7 +6,7 @@ class Veterinario <<entity>>{
 }
 
 class Consulta <<entity>>{
-    + Fecha : date
+    + Fecha : DateTime
     + DiagnoticoFinal : string
     + RegistrarMascota() : void
 }
